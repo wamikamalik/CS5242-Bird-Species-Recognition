@@ -1,0 +1,50 @@
+Defaulting to user installation because normal site-packages is not writeable
+Requirement already satisfied: pytz in /home/e/e0426346/.local/lib/python3.10/site-packages (2024.1)
+Directory exists skipping extraction
+Cropped directory exists, skipping cropping
+Loading the dataset...
+Splitting the dataset...
+Training set size:  8891
+Validation set size:  1448
+Test set size:  1449
+Starting epoch  1  of  20
+Epoch 1/20, train loss: 5.0802, val loss: 4.3529, train acc: 0.0527, val acc: 0.2913
+Starting epoch  2  of  20
+Epoch 2/20, train loss: 3.0799, val loss: 1.6410, train acc: 0.3899, val acc: 0.6265
+Starting epoch  3  of  20
+Epoch 3/20, train loss: 1.2557, val loss: 0.9326, train acc: 0.6976, val acc: 0.7273
+Starting epoch  4  of  20
+Epoch 4/20, train loss: 0.7774, val loss: 0.8925, train acc: 0.7841, val acc: 0.7412
+Starting epoch  5  of  20
+Epoch 5/20, train loss: 0.6775, val loss: 0.9204, train acc: 0.8045, val acc: 0.7417
+Starting epoch  6  of  20
+Epoch 6/20, train loss: 0.5488, val loss: 1.0808, train acc: 0.8421, val acc: 0.7213
+Starting epoch  7  of  20
+Epoch 7/20, train loss: 0.4159, val loss: 0.9365, train acc: 0.8675, val acc: 0.7486
+Starting epoch  8  of  20
+Epoch 8/20, train loss: 0.2979, val loss: 0.9006, train acc: 0.9114, val acc: 0.7792
+Starting epoch  9  of  20
+Epoch 9/20, train loss: 0.2164, val loss: 0.8476, train acc: 0.9340, val acc: 0.7874
+Starting epoch  10  of  20
+Epoch 10/20, train loss: 0.1382, val loss: 0.8345, train acc: 0.9582, val acc: 0.7946
+Starting epoch  11  of  20
+Epoch 11/20, train loss: 0.0910, val loss: 0.8892, train acc: 0.9727, val acc: 0.8038
+Starting epoch  12  of  20
+Epoch 12/20, train loss: 0.0495, val loss: 0.8108, train acc: 0.9863, val acc: 0.8224
+Starting epoch  13  of  20
+Epoch 13/20, train loss: 0.0379, val loss: 0.7900, train acc: 0.9907, val acc: 0.8159
+Starting epoch  14  of  20
+Epoch 14/20, train loss: 0.0215, val loss: 0.7583, train acc: 0.9964, val acc: 0.8189
+Starting epoch  15  of  20
+Epoch 15/20, train loss: 0.0128, val loss: 0.7552, train acc: 0.9987, val acc: 0.8334
+Starting epoch  16  of  20
+Epoch 16/20, train loss: 0.0074, val loss: 0.7477, train acc: 0.9985, val acc: 0.8478
+Starting epoch  17  of  20
+Epoch 17/20, train loss: 0.0058, val loss: 0.7416, train acc: 0.9994, val acc: 0.8478
+Starting epoch  18  of  20
+Epoch 18/20, train loss: 0.0043, val loss: 0.7279, train acc: 0.9991, val acc: 0.8440
+Starting epoch  19  of  20
+Epoch 19/20, train loss: 0.0040, val loss: 0.7312, train acc: 0.9996, val acc: 0.8481
+Starting epoch  20  of  20
+Epoch 20/20, train loss: 0.0039, val loss: 0.7282, train acc: 0.9997, val acc: 0.8515
+Test Accuracy of the model on the test images: 84.61007591442375 %
