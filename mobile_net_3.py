@@ -206,6 +206,10 @@ class MobileNetModel(BaseModel):
             if isinstance(module, nn.BatchNorm2d):
                 for param in module.parameters():
                     param.requires_grad = True
+
+        # Unfreeze last layer
+        for param in self.network.features[-1].parameters():
+            param.requires_grad = True
                     
         # Replace the classifier with a custom one
         num_ftrs = self.network.classifier[1].in_features
@@ -309,7 +313,7 @@ def fit(epochs, lr, train_loader, val_loader, optimizer_class):
 
     return history
 
-num_epochs = 70
+num_epochs = 80
 opt_func = torch.optim.Adam
 lr = 0.001
 
@@ -333,7 +337,7 @@ def plot_history(history):
     ax2.legend()
 
     plt.tight_layout()
-    plt.show()
+    plt.savefig('mobilenet_train_val_acc_loss.png')
 
 plot_history(history)
 
