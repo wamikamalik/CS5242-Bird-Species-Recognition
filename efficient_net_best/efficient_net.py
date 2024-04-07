@@ -1,9 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# ## Loading the Data
-
-# In[1]:
+# Loading the Data
 
 
 import pandas as pd
@@ -16,6 +14,7 @@ import os
 import csv
 from torch.utils.data import ConcatDataset
 import numpy as np
+
 # Extra info for logging
 extra = 'change to freeze all layers + dropout 0.5 + unfreeze batchnorm + cropped images + track both best val_loss and val_acc + add original image + test image not cropped + add augmented_more dataset + no crop augmented data'
 
@@ -74,9 +73,7 @@ combined_dataset.classes = all_classes
 print(combined_dataset)
 
 
-# ## Split Training Dataset into train and validation
-
-# In[5]:
+# Split Dataset into train, validation and test
 
 
 from sklearn.model_selection import train_test_split
@@ -135,9 +132,7 @@ print("Validation set size: ", len(val_dataset))
 print("Test set size: ", len(test_dataset))
 
 
-# ## EfficientNetB0 Transfer Learning Model Creation
-
-# In[12]:
+# EfficientNetB0 Transfer Learning Model Creation
 
 
 import torch
@@ -172,7 +167,7 @@ class EfficientNetModel(BaseModel):
         self.network.classifier = nn.Sequential(
             nn.Linear(1280, 256),
             nn.ReLU(),
-            nn.Dropout(0.2),
+            nn.Dropout(0.4),
             nn.Linear(256, num_classes)
         )
 
@@ -208,9 +203,7 @@ class EfficientNetModel(BaseModel):
             param.requires_grad = True
 
 
-# ## Training the Model
-
-# In[14]:
+# Training the Model
 
 
 import numpy as np
@@ -273,28 +266,22 @@ def fit(epochs, lr, train_loader, val_loader, optimizer, weight_decay=0):
         # Record validation loss and accuracy
         history['val_loss'].append(np.mean(val_losses))
         history['val_acc'].append(np.mean(val_accs))
-        print(f'Epoch {epoch+1}/{epochs}, train loss: {np.mean(train_losses):.4f}, val loss: {np.mean(val_losses):.4f}, val loss: {np.mean(val_losses):.4f}, train acc: {np.mean(train_accs):.4f}, val acc: {np.mean(val_accs):.4f}')
+        print(f'Epoch {epoch+1}/{epochs}, train loss: {np.mean(train_losses):.4f}, val loss: {np.mean(val_losses):.4f}, train acc: {np.mean(train_accs):.4f}, val acc: {np.mean(val_accs):.4f}')
     return history
 
 
-# In[15]:
-
-
-num_epochs = 30
+num_epochs = 50
 opt_func = torch.optim.Adam
 lr = 0.001
 weight_decay = 1e-5
+print("Freezing the parameters: ")
 model.freeze()
-history = fit(num_epochs, lr, train_loader, val_loader, opt_func)
+fit(num_epochs, lr, train_loader, val_loader, opt_func)
+
+#print("Unfreezing the parameters: ")
 #model.unfreeze()
 #lr = 0.0001
-#new_history = fit(num_epochs, lr, train_loader, val_loader, opt_func)
-# Append new history to existing history
-#for key in history.keys():
-#    history[key].extend(new_history[key])
-
-
-# In[ ]:
+#fit(num_epochs, lr, train_loader, val_loader, opt_func)
 
 
 import matplotlib.pyplot as plt
@@ -307,11 +294,13 @@ def plot_history(history):
     ax1.set_xlabel('Epochs')
     ax1.set_ylabel('Loss')
     ax1.legend()
+    ax1.set_xticks(range(1, len(history['train_loss']) + 1, 1))
 
     ax2.plot(history['train_acc'], label='train accuracy')
     ax2.plot(history['val_acc'], label='validation accuracy')
     ax2.set_xlabel('Epochs')
     ax2.set_ylabel('Accuracy')
+    ax2.set_xticks(range(1, len(history['train_acc']) + 1, 1))
     ax2.legend()
 
     plt.tight_layout()
@@ -321,9 +310,7 @@ def plot_history(history):
 plot_history(history)
 
 
-# ## Test the Model
-
-# In[ ]:
+# Test the Model
 
 
 def test_model(model, test_loader, device):
@@ -342,10 +329,6 @@ def test_model(model, test_loader, device):
 
 test_model(model, test_loader, device)
 
-
-# ## Save the Model
-
-# In[ ]:
 
 
 # Save the trained model

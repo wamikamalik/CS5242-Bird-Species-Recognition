@@ -1,0 +1,113 @@
+Defaulting to user installation because normal site-packages is not writeable
+Requirement already satisfied: pytz in /home/e/e0426346/.local/lib/python3.10/site-packages (2024.1)
+Directory ../augmented_images exists, skipping zip extraction.
+Directory ../CUB_200_2011/images exists, skipping zip extraction.
+Directory ../augmented_images_more exists, skipping zip extraction.
+Directory ../augmented_images_nocrop exists, skipping zip extraction.
+<torch.utils.data.dataset.ConcatDataset object at 0x7fd011ad69b0>
+indices exist, loading them...
+Training set size:  23976
+Validation set size:  1159
+Test set size:  4634
+Freezing the parameters: 
+Starting epoch  1  of  50
+Epoch 1/50, train loss: 5.2562, val loss: 5.1401, train acc: 0.0139, val acc: 0.0697
+Starting epoch  2  of  50
+Epoch 2/50, train loss: 4.9718, val loss: 4.5774, train acc: 0.0958, val acc: 0.2282
+Starting epoch  3  of  50
+Epoch 3/50, train loss: 4.4751, val loss: 3.9059, train acc: 0.2127, val acc: 0.3663
+Starting epoch  4  of  50
+Epoch 4/50, train loss: 3.8732, val loss: 3.1471, train acc: 0.3573, val acc: 0.4638
+Starting epoch  5  of  50
+Epoch 5/50, train loss: 3.1994, val loss: 2.5748, train acc: 0.4883, val acc: 0.5496
+Starting epoch  6  of  50
+Epoch 6/50, train loss: 2.5969, val loss: 1.9338, train acc: 0.5832, val acc: 0.6269
+Starting epoch  7  of  50
+Epoch 7/50, train loss: 2.1031, val loss: 1.6510, train acc: 0.6541, val acc: 0.6827
+Starting epoch  8  of  50
+Epoch 8/50, train loss: 1.7373, val loss: 1.4535, train acc: 0.6962, val acc: 0.7173
+Starting epoch  9  of  50
+Epoch 9/50, train loss: 1.3774, val loss: 1.2860, train acc: 0.7484, val acc: 0.7516
+Starting epoch  10  of  50
+Epoch 10/50, train loss: 1.1678, val loss: 1.0412, train acc: 0.7752, val acc: 0.7816
+Starting epoch  11  of  50
+Epoch 11/50, train loss: 0.9853, val loss: 1.1291, train acc: 0.8030, val acc: 0.7973
+Starting epoch  12  of  50
+Epoch 12/50, train loss: 0.8657, val loss: 1.0327, train acc: 0.8271, val acc: 0.8026
+Starting epoch  13  of  50
+Epoch 13/50, train loss: 0.7787, val loss: 1.0231, train acc: 0.8373, val acc: 0.7972
+Starting epoch  14  of  50
+Epoch 14/50, train loss: 0.6932, val loss: 1.1945, train acc: 0.8560, val acc: 0.7595
+Starting epoch  15  of  50
+Epoch 15/50, train loss: 0.6307, val loss: 0.8774, train acc: 0.8653, val acc: 0.8298
+Starting epoch  16  of  50
+Epoch 16/50, train loss: 0.5570, val loss: 0.9831, train acc: 0.8822, val acc: 0.8133
+Starting epoch  17  of  50
+Epoch 17/50, train loss: 0.4635, val loss: 0.9165, train acc: 0.8980, val acc: 0.8353
+Starting epoch  18  of  50
+Epoch 18/50, train loss: 0.4427, val loss: 0.8475, train acc: 0.9032, val acc: 0.8446
+Starting epoch  19  of  50
+Epoch 19/50, train loss: 0.3738, val loss: 0.8141, train acc: 0.9203, val acc: 0.8492
+Starting epoch  20  of  50
+Epoch 20/50, train loss: 0.3442, val loss: 0.8814, train acc: 0.9211, val acc: 0.8323
+Starting epoch  21  of  50
+Epoch 21/50, train loss: 0.3223, val loss: 0.7438, train acc: 0.9329, val acc: 0.8497
+Starting epoch  22  of  50
+Epoch 22/50, train loss: 0.2858, val loss: 0.7718, train acc: 0.9358, val acc: 0.8568
+Starting epoch  23  of  50
+Epoch 23/50, train loss: 0.2565, val loss: 0.7654, train acc: 0.9443, val acc: 0.8534
+Starting epoch  24  of  50
+Epoch 24/50, train loss: 0.2367, val loss: 0.7351, train acc: 0.9485, val acc: 0.8602
+Starting epoch  25  of  50
+Epoch 25/50, train loss: 0.1858, val loss: 0.6456, train acc: 0.9598, val acc: 0.8703
+Starting epoch  26  of  50
+Epoch 26/50, train loss: 0.1638, val loss: 0.7140, train acc: 0.9633, val acc: 0.8694
+Starting epoch  27  of  50
+Epoch 27/50, train loss: 0.1655, val loss: 0.8269, train acc: 0.9625, val acc: 0.8505
+Starting epoch  28  of  50
+Epoch 28/50, train loss: 0.1527, val loss: 0.6910, train acc: 0.9669, val acc: 0.8720
+Starting epoch  29  of  50
+Epoch 29/50, train loss: 0.1151, val loss: 0.6331, train acc: 0.9746, val acc: 0.8855
+Starting epoch  30  of  50
+Epoch 30/50, train loss: 0.0864, val loss: 0.7362, train acc: 0.9806, val acc: 0.8711
+Starting epoch  31  of  50
+Epoch 31/50, train loss: 0.0997, val loss: 0.6528, train acc: 0.9769, val acc: 0.8851
+Starting epoch  32  of  50
+Epoch 32/50, train loss: 0.0801, val loss: 0.7534, train acc: 0.9816, val acc: 0.8771
+Starting epoch  33  of  50
+Epoch 33/50, train loss: 0.0726, val loss: 0.7144, train acc: 0.9846, val acc: 0.8691
+Starting epoch  34  of  50
+Epoch 34/50, train loss: 0.0489, val loss: 0.6610, train acc: 0.9890, val acc: 0.8860
+Starting epoch  35  of  50
+Epoch 35/50, train loss: 0.0473, val loss: 0.6572, train acc: 0.9901, val acc: 0.8885
+Starting epoch  36  of  50
+Epoch 36/50, train loss: 0.0419, val loss: 0.6642, train acc: 0.9912, val acc: 0.8965
+Starting epoch  37  of  50
+Epoch 37/50, train loss: 0.0357, val loss: 0.6827, train acc: 0.9925, val acc: 0.8944
+Starting epoch  38  of  50
+Epoch 38/50, train loss: 0.0225, val loss: 0.6318, train acc: 0.9950, val acc: 0.8961
+Starting epoch  39  of  50
+Epoch 39/50, train loss: 0.0230, val loss: 0.6422, train acc: 0.9954, val acc: 0.9046
+Starting epoch  40  of  50
+Epoch 40/50, train loss: 0.0160, val loss: 0.6036, train acc: 0.9965, val acc: 0.9071
+Starting epoch  41  of  50
+Epoch 41/50, train loss: 0.0169, val loss: 0.6072, train acc: 0.9971, val acc: 0.9105
+Starting epoch  42  of  50
+Epoch 42/50, train loss: 0.0112, val loss: 0.6090, train acc: 0.9986, val acc: 0.9113
+Starting epoch  43  of  50
+Epoch 43/50, train loss: 0.0087, val loss: 0.6015, train acc: 0.9984, val acc: 0.9147
+Starting epoch  44  of  50
+Epoch 44/50, train loss: 0.0070, val loss: 0.6091, train acc: 0.9985, val acc: 0.9105
+Starting epoch  45  of  50
+Epoch 45/50, train loss: 0.0075, val loss: 0.5783, train acc: 0.9989, val acc: 0.9147
+Starting epoch  46  of  50
+Epoch 46/50, train loss: 0.0055, val loss: 0.5771, train acc: 0.9993, val acc: 0.9122
+Starting epoch  47  of  50
+Epoch 47/50, train loss: 0.0051, val loss: 0.5668, train acc: 0.9992, val acc: 0.9147
+Starting epoch  48  of  50
+Epoch 48/50, train loss: 0.0054, val loss: 0.5882, train acc: 0.9991, val acc: 0.9130
+Starting epoch  49  of  50
+Epoch 49/50, train loss: 0.0064, val loss: 0.5633, train acc: 0.9989, val acc: 0.9215
+Starting epoch  50  of  50
+Epoch 50/50, train loss: 0.0053, val loss: 0.5730, train acc: 0.9993, val acc: 0.9130
+Test Accuracy of the model on the test images: 90.82865774708675 %
