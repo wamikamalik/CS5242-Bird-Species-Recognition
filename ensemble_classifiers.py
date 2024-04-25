@@ -77,35 +77,6 @@ test_loader = DataLoader(test_dataset, batch_size=32, shuffle=False)
 print("Test set size: ", len(test_dataset))
 
 
-# In[65]:
-
-
-# Define the transformation
-transform = transforms.Compose([
-    transforms.Resize((224, 224)),
-    transforms.ToTensor(),
-    # transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
-])
-
-# Load datasets
-dataset_augmented = ImageFolder("../augmented_images", transform=transform)
-dataset_images = ImageFolder("../CUB_200_2011/images", transform=transform)
-dataset_augmented_more = ImageFolder("../augmented_images_more", transform=transform)
-dataset_augmented_nocrop = ImageFolder("../augmented_images_nocrop", transform=transform)
-
-
-# Combine datasets
-all_classes = sorted(set(dataset_images.classes + dataset_augmented.classes + dataset_augmented_more.classes + dataset_augmented_nocrop.classes))
-combined_dataset = ConcatDataset([dataset_images, dataset_augmented, dataset_augmented_more, dataset_augmented_nocrop])
-combined_dataset.classes = all_classes
-
-# Create subset datasets
-test_dataset_no_normalise = Subset(combined_dataset, test_indices)
-test_loader_no_normalise = DataLoader(test_dataset_no_normalise, batch_size=32, shuffle=False)
-
-print("No normalise test set size: ", len(test_dataset))
-
-
 # #### Load the required models
 
 # In[66]:
@@ -143,7 +114,7 @@ class EfficientNetModel(BaseModel):
         self.network.classifier = nn.Sequential(
             nn.Linear(1280, 256),
             nn.ReLU(),
-            nn.Dropout(0.2),
+            nn.Dropout(0.4),
             nn.Linear(256, num_classes)
         )
 
@@ -259,7 +230,7 @@ class GoogLeNetModel(BaseModel):
             param.requires_grad = False
 
         # Unfreeze the last five layers
-        for param in list(self.network.parameters())[-5:]:
+        for param in list(self.network.parameters())[-4:]:
             param.requires_grad = True
 
         # Replace the classifier with a custom one
@@ -280,8 +251,8 @@ class GoogLeNetModel(BaseModel):
         for param in self.network.parameters():
             param.requires_grad = False
 
-        # Unfreeze the last layer
-        list(self.network.parameters())[-1].requires_grad = True
+        # Unfreeze the last 4 layer
+        list(self.network.parameters())[-4].requires_grad = True
 
     def forward(self, xb):
         return self.network(xb)
@@ -344,15 +315,15 @@ with torch.no_grad():  # No need to track gradients
         labels.extend(l.tolist())
 
 with torch.no_grad():  # No need to track gradients
-    for i in range(len(test_dataset_no_normalise)):
-        inputs, l = test_dataset_no_normalise[i]
+    for i in range(len(test_dataset)):
+        inputs, l = test_dataset[i]
         inputs = inputs.to(device).unsqueeze(0)  # Convert inputs to tensor and send to device
         outputs = model2(inputs).cpu()
         model2_preds.extend(outputs)
 
 with torch.no_grad():  # No need to track gradients
-    for i in range(len(test_dataset_no_normalise)):
-        inputs, l = test_dataset_no_normalise[i]
+    for i in range(len(test_dataset)):
+        inputs, l = test_dataset[i]
         inputs = inputs.to(device).unsqueeze(0)  # Convert inputs to tensor and send to device
         outputs = model3(inputs).cpu()
         model3_preds.extend(outputs)
